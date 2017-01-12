@@ -8,6 +8,7 @@ gulp.task('default',function(){
 gulp.task('cacheBuster', function () {
     var randomNumber = parseInt(Math.random()*909090) ;
     return gulp.src('./public/test.html', { base: './' }) //must define base so I can overwrite the src file below. Per http://stackoverflow.com/questions/22418799/can-gulp-overwrite-all-src-files
-        .pipe(replace(':cacheBuster', '?ts=' + randomNumber))  //so find the script tag with an id of bundle, and replace its src.
+        .pipe(replace(':cacheBuster','?cbts='+ randomNumber)) // only for first time
+        .pipe(replace(/cbts=([^'|"]*)/g, 'cbts=' + randomNumber))  //so find the script tag with an id of bundle, and replace its src.
         .pipe(gulp.dest('./')); //Write the file back to the same spot.
 });
