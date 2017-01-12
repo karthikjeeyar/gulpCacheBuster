@@ -1,0 +1,9 @@
+{
+  "name": "gulpCacheBuster",
+  "description": "A simple cache busting mechanism to append random number in resource's query string",
+  "version": "1.0.0",
+  "dependencies": {
+    "gulp": "3.9.1",
+    "gulp-replace": "^0.5.4"
+  }
+}
